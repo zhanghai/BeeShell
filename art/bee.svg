@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   version="1.1"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   sodipodi:docname="bee.svg"
+   id="svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="45.254834"
+     inkscape:cx="8.4852814"
+     inkscape:cy="12.031864"
+     inkscape:window-width="2560"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer"
+     id="namedview" />
+  <defs
+     id="defs">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPathBody">
+      <path
+         style="fill:#fbbc04;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2"
+         d="M 5 12 L 5 16 A 7 7 0 0 0 12 23 A 7 7 0 0 0 19 16 L 19 12 L 5 12 z "
+         id="path829" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer">
+    <path
+       style="fill:#b06000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 16.12,4.37 18.22,2.27 17.4,1.44 15.1,3.75 Z M 8.91,3.75 6.6,1.44 5.78,2.27 l 2.1,2.1 z"
+       sodipodi:nodetypes="cccccccccc"
+       id="antennae" />
+    <path
+       style="fill:#fbbc04;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.39999"
+       d="M 12 3 A 7 7 0 0 0 5 10 L 5 11 L 19 11 L 19 10 A 7 7 0 0 0 12 3 z "
+       id="head" />
+    <path
+       style="fill:#fbbc04;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2"
+       d="M 5 12 L 5 16 A 7 7 0 0 0 12 23 A 7 7 0 0 0 19 16 L 19 12 L 5 12 z "
+       id="body" />
+    <path
+       style="fill:#b06000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2"
+       d="M 5 12 L 5 14 L 19 14 L 19 12 L 5 12 z M 5 16 L 5 18 L 19 18 L 19 16 L 5 16 z M 5 20 L 5 22 L 19 22 L 19 20 L 5 20 z "
+       clip-path="url(#clipPathBody)"
+       id="stripes" />
+    <path
+       style="fill:#b06000;fill-rule:evenodd;stroke-width:2"
+       d="M 16,8 A 1,1 0 0 1 15,9 1,1 0 0 1 14,8 1,1 0 0 1 15,7 1,1 0 0 1 16,8 Z M 10,8 A 1,1 0 0 1 9,9 1,1 0 0 1 8,8 1,1 0 0 1 9,7 1,1 0 0 1 10,8 Z"
+       id="eyes" />
+  </g>
+</svg>

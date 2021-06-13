@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright 2020 Google LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     https://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="activity_not_found">No application found to handle this action</string>
+
+    <string name="app_name">BeeShell</string>
+
+    <string name="clear">Clear</string>
+    <string name="about">About</string>
+    <string name="copy">Copy</string>
+    <string name="select">Select</string>
+    <string name="edit">Edit</string>
+    <string name="input_hint">Java here;</string>
+    <string name="load">Load</string>
+    <string name="interrupt">Interrupt</string>
+    <string name="execute">Execute</string>
+    <string name="executing">Executing…</string>
+    <string name="powered_by_beanshell_format">Powered by BeanShell %1$s</string>
+    <string name="github">GitHub</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright 2020 Google LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     https://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <color name="google_blue_500">#4285F4</color>
+    <color name="google_blue_300">#8AB4F8</color>
+    <color name="google_grey_900">#202124</color>
+    <color name="google_orange_900">#B06000</color>
+    <color name="google_yellow_500">#FBBC04</color>
+
+    <color name="system_window_scrim_light">#99FFFFFF</color>
+    <color name="system_window_scrim_dark">#66202124</color>
+    <color name="system_window_scrim">@color/system_window_scrim_light</color>
+
+    <color name="system_window_scrim_light_compat">#44000000</color>
+    <color name="system_window_scrim_compat">@color/system_window_scrim_light_compat</color>
+
+    <color name="color_primary_light">@color/google_blue_500</color>
+    <color name="color_primary_dark">@color/google_blue_300</color>
+    <color name="color_primary_daynight">@color/color_primary_light</color>
+
+    <color name="color_surface_light">@android:color/white</color>
+    <color name="color_surface_dark">@color/google_grey_900</color>
+    <color name="color_surface_daynight">@color/color_surface_light</color>
+</resources>
