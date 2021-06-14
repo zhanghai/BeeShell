@@ -23,6 +23,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -152,6 +153,16 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
                 padding(left = true, right = true, bottom = true, animated = true)
             }
             syncTranslationTo(binding.syncTranslationView)
+        }
+        binding.inputEdit.setOnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_DPAD_CENTER
+                        || keyCode == KeyEvent.KEYCODE_ENTER
+                        || keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER) && event.isCtrlPressed) {
+                onExecute()
+                true
+            } else {
+                false
+            }
         }
         binding.loadButton.setOnClickListener { onLoad() }
         binding.interruptButton.setOnClickListener { onInterrupt() }
