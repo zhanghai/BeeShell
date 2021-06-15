@@ -30,7 +30,7 @@ class SelectTextDialogFragment : DialogFragment() {
             .apply {
                 val context = context
                 val binding = SelectTextDialogBinding.inflate(context.layoutInflater)
-                binding.textText.text = requireArguments().getCharSequence(Intent.EXTRA_TEXT)
+                binding.text.text = requireArguments().getCharSequence(Intent.EXTRA_TEXT)
                 setView(binding.root)
                 setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
             }
