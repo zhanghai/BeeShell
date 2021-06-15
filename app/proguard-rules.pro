@@ -25,27 +25,7 @@
     public static void main(java.lang.String[]);
 }
 
-# Android Support Library
--keep class android.support.** { *; }
--keep enum android.support.** { *; }
--keep interface android.support.** { *; }
-
-# AndroidX
--keep class androidx.** { *; }
--keep enum androidx.** { *; }
--keep interface androidx.** { *; }
-
 # BeanShell
 -keep class bsh.** { *; }
 -keep enum bsh.** { *; }
 -keep interface bsh.** { *; }
-
-# JLine
--keepnames class org.jline.** { *; }
--keepnames enum org.jline.** { *; }
--keepnames interface org.jline.** { *; }
-
-# Material Components for Android
--keep class com.google.android.material.** { *; }
--keep enum com.google.android.material.** { *; }
--keep interface com.google.android.material.** { *; }
