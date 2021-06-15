@@ -32,7 +32,7 @@ class AboutDialogFragment : DialogFragment() {
             .apply {
                 val context = context
                 val binding = AboutDialogBinding.inflate(context.layoutInflater)
-                binding.poweredBeanShellText.text = context.getString(
+                binding.poweredByBeanShellText.text = context.getString(
                     R.string.powered_by_beanshell_format, Interpreter.VERSION
                 )
                 setView(binding.root)

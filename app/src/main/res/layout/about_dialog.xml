@@ -57,7 +57,7 @@
         android:textColor="?android:textColorSecondary" />
 
     <TextView
-        android:id="@+id/poweredBeanShellText"
+        android:id="@+id/poweredByBeanShellText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/nameText"
