@@ -25,6 +25,10 @@ Execute the following command in `adb shell`:
 pm_path=`pm path me.zhanghai.android.beeshell` && apk_path=${pm_path#package:} && `dirname $apk_path`/lib/*/libbsh.so
 ```
 
+## Limitation
+
+[BeanShell](https://github.com/beanshell/beanshell) was written for running on a desktop JVM instead of Android, and as a result class-related Java syntax may be unsupported in this app. Specifically, you cannot define new classes except for anonymous inner classes implementing an existing interface.
+
 ## License
 
     Copyright 2020 Google LLC
