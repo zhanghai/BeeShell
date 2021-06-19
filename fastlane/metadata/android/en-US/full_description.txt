@@ -1,0 +1,3 @@
+Evaluate Java code on Android directly.
+
+https://github.com/zhanghai/BeeShell
