@@ -102,7 +102,7 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
         adapter = ShellAdapter(this)
         adapter.registerAdapterDataObserver(object : SimpleAdapterDataObserver() {
             override fun onChanged() {
-                binding.emptyLayout.isInvisible = adapter.itemCount != 0
+                binding.emptyImage.isInvisible = adapter.itemCount != 0
             }
         })
         binding.recycler.apply {
@@ -143,7 +143,7 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
             }
         }
         val itemAnimator = binding.recycler.itemAnimator!!
-        binding.emptyLayout.layoutTransition.setDuration(
+        (binding.emptyImage.parent as ViewGroup).layoutTransition.setDuration(
             (itemAnimator.addDuration + itemAnimator.removeDuration) / 2
         )
         binding.bottomLayout.applyInsetter {
