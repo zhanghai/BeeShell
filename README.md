@@ -6,6 +6,8 @@
 
 Java REPL on Android with [BeanShell](https://github.com/beanshell/beanshell).
 
+Useful for quickly checking some framework API behavior, or calling Java APIs with the permissions of ADB shell.
+
 This is not an officially supported Google product.
 
 ## Preview
@@ -16,6 +18,14 @@ This is not an officially supported Google product.
 
 <p><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="49%" />
 <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="49%" /></p>
+
+## Built-ins
+
+The application `Context` is available via the `context` variable in the global namespace.
+
+An `Activity` instance is also available as `activity` when running with UI, and references to it in the global namespace will be cleared upon rotation to avoid memory leaks.
+
+Other BeanShell built-ins are also available, though not guaranteed to work, e.g. Swing-based UI built-ins won't work on Android.
 
 ## Running in ADB shell
 
