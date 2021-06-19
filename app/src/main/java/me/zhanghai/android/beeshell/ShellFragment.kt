@@ -113,6 +113,7 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
                     padding(left = true, top = true, right = true)
                 }
             }
+            setHasFixedSize(true)
             layoutManager = LinearLayoutManager(activity)
             addItemDecoration(
                 DividerItemDecoration(
