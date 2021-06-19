@@ -222,8 +222,9 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
     }
 
     private fun onItemsChanged(items: List<ShellItem>) {
+        val itemAdded = items.size > adapter.itemCount
         adapter.replace(items)
-        if (items.isNotEmpty()) {
+        if (itemAdded) {
             binding.recycler.scrollToPosition(items.size - 1)
         }
     }
