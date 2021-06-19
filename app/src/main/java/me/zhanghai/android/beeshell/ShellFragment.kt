@@ -196,7 +196,7 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
         }
 
     private fun onClear() {
-        viewModel.clear()
+        viewModel.clearItems()
     }
 
     private fun onAbout() {
@@ -230,7 +230,7 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
     }
 
     private fun onRemoveItem(index: Int) {
-        viewModel.removeAt(index)
+        viewModel.removeItemAt(index)
     }
 
     override fun onCopyText(text: String) {

@@ -64,11 +64,11 @@ class ShellViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun clear() {
+    fun clearItems() {
         _items.value = emptyList()
     }
 
-    fun removeAt(index: Int) {
+    fun removeItemAt(index: Int) {
         _items.value = _items.valueCompat.filterIndexed { it, _ -> it != index }
     }
 
