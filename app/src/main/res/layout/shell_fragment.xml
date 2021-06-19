@@ -88,6 +88,7 @@
             android:fontFamily="monospace"
             android:hint="@string/input_hint"
             android:inputType="textMultiLine|textNoSuggestions"
+            android:maxLines="8"
             android:textAppearance="?textAppearanceBody1">
             <requestFocus />
         </me.zhanghai.android.beeshell.EditableEditText>
