@@ -1,6 +1,6 @@
 # BeeShell
 
-[![Android CI status](https://github.com/zhanghai/BeeShell/workflows/Android%20CI/badge.svg)](https://github.com/zhanghai/BeeShell/actions)
+[![Android CI status](https://github.com/zhanghai/BeeShell/workflows/Android%20CI/badge.svg)](https://github.com/zhanghai/BeeShell/actions) [![GitHub release](https://img.shields.io/github/v/release/zhanghai/BeeShell)](https://github.com/zhanghai/BeeShell/releases) [![License](https://img.shields.io/github/license/zhanghai/BeeShell?color=blue)](LICENSE)
 
 ![BeeShell](app/src/main/res/mipmap-xxxhdpi/launcher_icon.png)
 
