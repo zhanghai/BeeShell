@@ -22,6 +22,34 @@ import bsh.ParseException
 import bsh.TargetError
 
 class InteractiveInterpreter(val interpreter: Interpreter) {
+    init {
+        interpreter.nameSpace.apply {
+            importPackage("android.app")
+            importPackage("android.content")
+            importPackage("android.content.pm")
+            importPackage("android.content.res")
+            importPackage("android.graphics")
+            importPackage("android.graphics.drawable")
+            importPackage("android.net")
+            importPackage("android.os")
+            importPackage("android.provider")
+            importPackage("android.system")
+            importPackage("android.util")
+            importPackage("android.view")
+            importPackage("android.widget")
+            importPackage("java.lang.reflect")
+            importPackage("java.nio")
+            importPackage("java.nio.charset")
+            importPackage("java.nio.file")
+            importPackage("java.nio.file.attribute")
+            importPackage("java.time")
+            importPackage("java.time.format")
+            importPackage("java.util.concurrent")
+            importPackage("java.util.function")
+            importPackage("java.util.regex")
+        }
+    }
+
     private var outputIndex = 0
 
     fun execute(input: String): String {
