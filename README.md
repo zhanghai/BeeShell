@@ -41,7 +41,7 @@ pm_path=`pm path me.zhanghai.android.beeshell` && apk_path=${pm_path#package:} &
 
 ## License
 
-    Copyright 2020 Google LLC
+    Copyright 2020 Zhanghai
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
