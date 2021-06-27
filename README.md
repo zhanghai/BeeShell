@@ -10,14 +10,13 @@ Useful for quickly checking some framework API behavior, or calling Java APIs wi
 
 This is not an officially supported Google product.
 
+[<img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="240">](https://play.google.com/store/apps/details?id=me.zhanghai.android.beeshell)
+
+[Get the APK](https://github.com/zhanghai/BeeShell/releases/latest/download/app-release.apk)
+
 ## Preview
 
-<a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.beeshell" target="_blank"><img alt="Google Play" height="90" src="https://play.google.com/intl/en_US/badges/images/generic/en_badge_web_generic.png"/></a>
-
-[Download APK](https://github.com/zhanghai/BeeShell/releases/latest/download/app-release.apk)
-
-<p><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="49%" />
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="49%" /></p>
+<p><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="49%" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="49%" /></p>
 
 ## Built-ins
 
