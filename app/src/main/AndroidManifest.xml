@@ -32,7 +32,9 @@
         android:theme="@style/Theme.BeeShell"
         tools:ignore="UnusedAttribute">
 
-        <activity android:name=".ShellActivity">
+        <activity
+            android:name=".ShellActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
