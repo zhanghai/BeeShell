@@ -4,9 +4,10 @@ apply plugin: 'kotlin-android'
 apply from: '../signing.gradle'
 
 android {
+    namespace 'me.zhanghai.android.beeshell'
     compileSdkVersion 33
     ndkVersion '25.1.8937393'
-    buildToolsVersion '33.0.0'
+    buildToolsVersion '33.0.1'
 
     defaultConfig {
         applicationId 'me.zhanghai.android.beeshell'
@@ -55,15 +56,15 @@ dependencies {
     def kotlinx_coroutines_version = '1.6.4'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_coroutines_version"
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.fragment:fragment-ktx:1.5.2'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.fragment:fragment-ktx:1.5.5'
     def androidx_lifecycle_version = '2.5.1'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$androidx_lifecycle_version"
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'dev.chrisbanes.insetter:insetter:0.6.0'
     implementation 'me.zhanghai.android.linenoise:library:1.0.1'
     implementation 'org.apache-extras.beanshell:bsh:2.0b6'
