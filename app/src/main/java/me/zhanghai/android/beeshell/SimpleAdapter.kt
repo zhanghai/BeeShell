@@ -16,6 +16,7 @@
 
 package me.zhanghai.android.beeshell
 
+import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class SimpleAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
@@ -35,6 +36,7 @@ abstract class SimpleAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Ada
         notifyItemRangeInserted(oldSize, collection.size)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun replace(collection: Collection<T>) {
         _list.clear()
         _list.addAll(collection)
