@@ -24,6 +24,8 @@ The application `Context` is available via the `context` variable in the global 
 
 An `Activity` instance is also available as `activity` when running with UI, and references to it in the global namespace will be cleared upon rotation to avoid memory leaks.
 
+A system `Context` instance is also available as `systemContext` when running in ADB shell.
+
 Other BeanShell built-ins are also available, though not guaranteed to work, e.g. Swing-based UI built-ins won't work on Android.
 
 ## Running in ADB shell

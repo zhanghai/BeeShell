@@ -41,6 +41,20 @@ object ShellMain {
         val activityThread = activityThreadSystemMainMethod.invoke(null)
         val activityThreadGetSystemContextMethod = activityThreadClass.getMethod("getSystemContext")
         val systemContext = activityThreadGetSystemContextMethod.invoke(activityThread) as Context
+        val shellContext = systemContext.createPackageContext("com.android.shell", 0)
+        @SuppressLint("PrivateApi")
+        val contextImplClass = Class.forName("android.app.ContextImpl")
+        @SuppressLint("DiscouragedPrivateApi")
+        val contextImplPackageInfoField = contextImplClass.getDeclaredField("mPackageInfo")
+            .apply { isAccessible = true }
+        val loadedApk = contextImplPackageInfoField.get(shellContext)
+        @SuppressLint("PrivateApi")
+        val loadedApkClass = Class.forName("android.app.LoadedApk")
+        val contextImplCreateAppContextMethod = contextImplClass.getDeclaredMethod(
+            "createAppContext", activityThreadClass, loadedApkClass
+        ).apply { isAccessible = true }
+        val context = contextImplCreateAppContextMethod.invoke(null, activityThread, loadedApk) as
+                Context
         @SuppressLint("PrivateApi")
         val ddmHandleAppNameClass = Class.forName("android.ddm.DdmHandleAppName")
         val ddmHandleAppNameSetAppName = ddmHandleAppNameClass.getMethod(
@@ -48,12 +62,16 @@ object ShellMain {
         )
         ddmHandleAppNameSetAppName.invoke(null, "${BuildConfig.APPLICATION_ID}:shell", 0)
 
-        val interpreter = Interpreter().apply { set("context", systemContext) }
+        val interpreter = Interpreter().apply {
+            set("systemContext", systemContext)
+            set("context", context)
+        }
         val isInteractive = args.isEmpty() && System.console() != null
         if (isInteractive) {
-            val libraryDirectory = systemContext.packageManager.getApplicationInfo(
-                BuildConfig.APPLICATION_ID, 0
-            ).nativeLibraryDir
+            val packageManager = context.packageManager
+            @Suppress("DEPRECATION")
+            val applicationInfo = packageManager.getApplicationInfo(BuildConfig.APPLICATION_ID, 0)
+            val libraryDirectory = applicationInfo.nativeLibraryDir
             val linenoiseLibraryPath = File(libraryDirectory)
                 .resolve("lib${Linenoise.getLibraryName()}.so")
                 .path
