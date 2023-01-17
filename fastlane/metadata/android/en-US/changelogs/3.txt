@@ -1,0 +1,1 @@
+- Changed context object when running in ADB shell to use shell context instead of system context; the original system context is now exposed as systemContext.
