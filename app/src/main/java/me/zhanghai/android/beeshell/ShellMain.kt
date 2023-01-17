@@ -54,7 +54,7 @@ object ShellMain {
             "createAppContext", activityThreadClass, loadedApkClass
         ).apply { isAccessible = true }
         val context = contextImplCreateAppContextMethod.invoke(null, activityThread, loadedApk) as
-                Context
+            Context
         @SuppressLint("PrivateApi")
         val ddmHandleAppNameClass = Class.forName("android.ddm.DdmHandleAppName")
         val ddmHandleAppNameSetAppName = ddmHandleAppNameClass.getMethod(
