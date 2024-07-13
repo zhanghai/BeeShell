@@ -85,7 +85,8 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
             @Suppress("DEPRECATION")
             activity.setTaskDescription(
                 ActivityManager.TaskDescription(
-                    null, null, activity.getColorByAttr(R.attr.colorSurface)
+                    null, null,
+                    activity.getColorByAttr(com.google.android.material.R.attr.colorSurface)
                 )
             )
             activity.window.setDecorFitsSystemWindowsCompat(false)

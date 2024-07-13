@@ -5,21 +5,22 @@ apply from: '../signing.gradle'
 
 android {
     namespace 'me.zhanghai.android.beeshell'
-    compileSdkVersion 33
-    ndkVersion '25.1.8937393'
-    buildToolsVersion '33.0.1'
+    compileSdk = 33
+    ndkVersion = '25.1.8937393'
+    buildToolsVersion = '33.0.1'
 
     defaultConfig {
         applicationId 'me.zhanghai.android.beeshell'
-        minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 3
-        versionName '1.0.2'
+        minSdk = 21
+        targetSdk = 33
+        versionCode = 3
+        versionName = '1.0.2'
         resValue 'string', 'app_version', versionName + ' (' + versionCode + ')'
     }
 
     buildFeatures {
-        viewBinding true
+        buildConfig = true
+        viewBinding = true
     }
 
     compileOptions {
@@ -34,6 +35,7 @@ android {
     packagingOptions {
         jniLibs {
             keepDebugSymbols += ['**/libbsh.so']
+            useLegacyPackaging true
         }
     }
 
