@@ -27,5 +27,7 @@
 
 # BeanShell
 -keep class bsh.** { *; }
--keep enum bsh.** { *; }
--keep interface bsh.** { *; }
+-dontwarn java.applet.Applet
+-dontwarn java.awt.**
+-dontwarn javax.**
+-dontwarn org.apache.bsf.**
