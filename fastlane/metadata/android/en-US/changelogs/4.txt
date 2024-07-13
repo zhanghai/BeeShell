@@ -1,0 +1,1 @@
+- Updated target SDK to Android 14.
