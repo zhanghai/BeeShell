@@ -71,18 +71,15 @@ android {
 }
 
 dependencies {
-    val kotlinxCoroutinesVersion = "1.6.4"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxCoroutinesVersion")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
-    implementation("androidx.appcompat:appcompat:1.6.0")
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.fragment:fragment-ktx:1.5.5")
-    val androidxLifecycleVersion = "2.5.1"
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.fragment:fragment-ktx:1.8.1")
+    val androidxLifecycleVersion = "2.8.3"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$androidxLifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$androidxLifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-common-java8:$androidxLifecycleVersion")
-    implementation("androidx.recyclerview:recyclerview:1.2.1")
-    implementation("com.google.android.material:material:1.7.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("com.google.android.material:material:1.12.0")
     implementation("dev.chrisbanes.insetter:insetter:0.6.0")
     implementation("me.zhanghai.android.linenoise:library:1.0.1")
     implementation("org.apache-extras.beanshell:bsh:2.0b6")
