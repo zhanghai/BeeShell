@@ -21,13 +21,13 @@ plugins {
 
 android {
     namespace = "me.zhanghai.android.beeshell"
-    compileSdk = 34
-    ndkVersion = "26.3.11579264"
-    buildToolsVersion = "34.0.0"
+    compileSdk = 36
+    ndkVersion = "28.1.13356709"
+    buildToolsVersion = "36.0.0"
     defaultConfig {
         applicationId = "me.zhanghai.android.beeshell"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 4
         versionName = "1.0.3"
         resValue("string", "app_version", "$versionName ($versionCode)")
@@ -71,16 +71,16 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.fragment:fragment-ktx:1.8.2")
-    val androidxLifecycleVersion = "2.8.4"
+    implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation("androidx.core:core-ktx:1.16.0")
+    implementation("androidx.fragment:fragment-ktx:1.8.8")
+    val androidxLifecycleVersion = "2.9.1"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$androidxLifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$androidxLifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-common-java8:$androidxLifecycleVersion")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("com.google.android.material:material:1.12.0")
-    implementation("dev.chrisbanes.insetter:insetter:0.6.0")
-    implementation("me.zhanghai.android.linenoise:library:1.0.1")
+    implementation("dev.chrisbanes.insetter:insetter:0.6.1")
+    implementation("me.zhanghai.android.linenoise:library:1.0.2")
     implementation("org.apache-extras.beanshell:bsh:2.0b6")
 }
