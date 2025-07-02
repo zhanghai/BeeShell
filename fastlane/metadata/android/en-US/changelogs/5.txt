@@ -1,0 +1,2 @@
+- Updated target SDK to Android 16.
+- Added support for 16 KB page sizes.
