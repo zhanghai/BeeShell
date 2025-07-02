@@ -35,11 +35,4 @@ class ShellActivity : AppCompatActivity() {
             fragment = supportFragmentManager.findFragmentById(android.R.id.content) as ShellFragment
         }
     }
-
-    override fun onBackPressed() {
-        if (fragment.onBackPressed()) {
-            return
-        }
-        super.onBackPressed()
-    }
 }

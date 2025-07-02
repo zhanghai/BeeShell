@@ -305,9 +305,4 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
     private fun onInterrupt() {
         viewModel.interrupt()
     }
-
-    fun onBackPressed(): Boolean {
-        // TODO
-        return false
-    }
 }
