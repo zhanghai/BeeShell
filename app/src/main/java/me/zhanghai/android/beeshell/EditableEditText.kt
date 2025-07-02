@@ -23,9 +23,8 @@ import androidx.annotation.AttrRes
 import androidx.appcompat.widget.AppCompatEditText
 
 class EditableEditText : AppCompatEditText {
-    private var editableInputType = inputType.let {
-        if (it != InputType.TYPE_NULL) it else InputType.TYPE_CLASS_TEXT
-    }
+    private var editableInputType =
+        inputType.let { if (it != InputType.TYPE_NULL) it else InputType.TYPE_CLASS_TEXT }
 
     constructor(context: Context) : super(context)
 
@@ -34,7 +33,7 @@ class EditableEditText : AppCompatEditText {
     constructor(
         context: Context,
         attrs: AttributeSet?,
-        @AttrRes defStyleAttr: Int
+        @AttrRes defStyleAttr: Int,
     ) : super(context, attrs, defStyleAttr)
 
     var isEditable: Boolean

@@ -32,7 +32,8 @@ class ShellActivity : AppCompatActivity() {
             fragment = ShellFragment()
             supportFragmentManager.commit { add(android.R.id.content, fragment) }
         } else {
-            fragment = supportFragmentManager.findFragmentById(android.R.id.content) as ShellFragment
+            fragment =
+                supportFragmentManager.findFragmentById(android.R.id.content) as ShellFragment
         }
     }
 }

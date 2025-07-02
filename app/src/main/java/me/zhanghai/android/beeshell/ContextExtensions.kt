@@ -31,8 +31,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
 
 @ColorInt
-fun Context.getColorByAttr(@AttrRes attr: Int): Int =
-    getColorStateListByAttr(attr).defaultColor
+fun Context.getColorByAttr(@AttrRes attr: Int): Int = getColorStateListByAttr(attr).defaultColor
 
 @SuppressLint("RestrictedApi")
 fun Context.getColorStateListByAttr(@AttrRes attr: Int): ColorStateList =

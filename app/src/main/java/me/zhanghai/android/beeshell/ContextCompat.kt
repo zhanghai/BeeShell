@@ -34,16 +34,14 @@ fun Context.obtainStyledAttributesCompat(
     set: AttributeSet? = null,
     @StyleableRes attrs: IntArray,
     @AttrRes defStyleAttr: Int = 0,
-    @StyleRes defStyleRes: Int = 0
+    @StyleRes defStyleRes: Int = 0,
 ): TintTypedArray =
     TintTypedArray.obtainStyledAttributes(this, set, attrs, defStyleAttr, defStyleRes)
 
 @OptIn(ExperimentalContracts::class)
 @SuppressLint("RestrictedApi")
 inline fun <R> TintTypedArray.use(block: (TintTypedArray) -> R): R {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
     return try {
         block(this)
     } finally {
@@ -54,5 +52,5 @@ inline fun <R> TintTypedArray.use(block: (TintTypedArray) -> R): R {
 val Context.mainExecutorCompat: Executor
     get() = ContextCompat.getMainExecutor(this)
 
-fun <T> Context.getSystemServiceCompat(serviceClass: Class<T>):T =
+fun <T> Context.getSystemServiceCompat(serviceClass: Class<T>): T =
     ContextCompat.getSystemService(this, serviceClass)!!

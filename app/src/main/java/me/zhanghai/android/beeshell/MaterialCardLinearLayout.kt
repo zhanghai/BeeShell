@@ -27,22 +27,27 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import com.google.android.material.shape.Shapeable
 import com.google.android.material.theme.overlay.MaterialThemeOverlay
 
-class MaterialCardLinearLayout @JvmOverloads constructor(
+class MaterialCardLinearLayout
+@JvmOverloads
+constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0,
-    @StyleRes defStyleRes: Int = 0
-) : LinearLayout(
-    MaterialThemeOverlay.wrap(context, attrs, defStyleAttr, defStyleRes), attrs, defStyleAttr,
-    defStyleRes
-), Shapeable {
+    @StyleRes defStyleRes: Int = 0,
+) :
+    LinearLayout(
+        MaterialThemeOverlay.wrap(context, attrs, defStyleAttr, defStyleRes),
+        attrs,
+        defStyleAttr,
+        defStyleRes,
+    ),
+    Shapeable {
     private val materialShapeDrawable: MaterialShapeDrawable
 
     init {
-        @Suppress("NAME_SHADOWING")
-        val context = getContext()
-        materialShapeDrawable = MaterialShapeDrawable.createWithElevationOverlay(context, elevation)
-            .apply {
+        @Suppress("NAME_SHADOWING") val context = getContext()
+        materialShapeDrawable =
+            MaterialShapeDrawable.createWithElevationOverlay(context, elevation).apply {
                 shapeAppearanceModel =
                     ShapeAppearanceModel.builder(context, attrs, defStyleAttr, defStyleRes).build()
             }

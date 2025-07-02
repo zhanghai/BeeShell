@@ -32,9 +32,8 @@ class AboutDialogFragment : DialogFragment() {
             .apply {
                 val context = context
                 val binding = AboutDialogBinding.inflate(context.layoutInflater)
-                binding.poweredByBeanShellText.text = context.getString(
-                    R.string.powered_by_beanshell_format, Interpreter.VERSION
-                )
+                binding.poweredByBeanShellText.text =
+                    context.getString(R.string.powered_by_beanshell_format, Interpreter.VERSION)
                 setView(binding.root)
                 setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
                 setNeutralButton(R.string.github) { _, _ ->

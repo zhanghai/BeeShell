@@ -21,9 +21,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import me.zhanghai.android.beeshell.databinding.ShellItemBinding
 
-class ShellAdapter(
-    private val listener: Listener
-) : SimpleAdapter<ShellItem, ShellAdapter.ViewHolder>() {
+class ShellAdapter(private val listener: Listener) :
+    SimpleAdapter<ShellItem, ShellAdapter.ViewHolder>() {
     override val hasStableIds: Boolean
         get() = true
 
@@ -61,7 +60,9 @@ class ShellAdapter(
 
     interface Listener {
         fun onCopyText(text: String)
+
         fun onSelectText(text: String)
+
         fun onEditText(text: String)
     }
 

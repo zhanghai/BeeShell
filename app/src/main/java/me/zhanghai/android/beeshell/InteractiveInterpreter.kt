@@ -54,24 +54,26 @@ class InteractiveInterpreter(val interpreter: Interpreter) {
 
     fun execute(input: String): String {
         ++outputIndex
-        val outputValue: Any? = try {
-            interpreter.eval(input)
-        } catch (e: ParseException) {
-            return e.message!!.trim()
-        } catch (e: TargetError) {
-            return e.printedStackTrace
-        } catch (e: EvalError) {
-            return e.message!!.trim()
-        }
+        val outputValue: Any? =
+            try {
+                interpreter.eval(input)
+            } catch (e: ParseException) {
+                return e.message!!.trim()
+            } catch (e: TargetError) {
+                return e.printedStackTrace
+            } catch (e: EvalError) {
+                return e.message!!.trim()
+            }
         val outputName = "\$$outputIndex"
         interpreter.set(outputName, outputValue)
         @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
-        val outputText = when (outputValue) {
-            is Array<*> -> outputValue.contentDeepToString()
-            is Character -> "'$outputValue'"
-            is String -> "\"$outputValue\""
-            else -> outputValue.toString()
-        }
+        val outputText =
+            when (outputValue) {
+                is Array<*> -> outputValue.contentDeepToString()
+                is Character -> "'$outputValue'"
+                is String -> "\"$outputValue\""
+                else -> outputValue.toString()
+            }
         return "$outputName = $outputText"
     }
 }

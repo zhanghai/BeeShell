@@ -18,9 +18,6 @@ package me.zhanghai.android.beeshell
 
 import kotlin.random.Random
 
-class ShellItem(
-    val input: String,
-    val output: String
-) {
+class ShellItem(val input: String, val output: String) {
     val id: Long = Random.nextLong()
 }

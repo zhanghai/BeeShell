@@ -30,16 +30,16 @@ import java.util.concurrent.Future
 
 class ShellViewModel(application: Application) : AndroidViewModel(application) {
     private val interpreterOutputStream = ByteArrayOutputStream()
-    private val interpreterPrintStream = PrintStream(
-        interpreterOutputStream, false, StandardCharsets.UTF_8.name()
-    )
-    private val interpreter = InteractiveInterpreter(
-        Interpreter().apply {
-            out = interpreterPrintStream
-            err = interpreterPrintStream
-            set("context", application)
-        }
-    )
+    private val interpreterPrintStream =
+        PrintStream(interpreterOutputStream, false, StandardCharsets.UTF_8.name())
+    private val interpreter =
+        InteractiveInterpreter(
+            Interpreter().apply {
+                out = interpreterPrintStream
+                err = interpreterPrintStream
+                set("context", application)
+            }
+        )
 
     private val interpreterExecutor = Executors.newFixedThreadPool(1)
     private var interpreterFuture: Future<*>? = null
@@ -77,22 +77,24 @@ class ShellViewModel(application: Application) : AndroidViewModel(application) {
             return
         }
         _isExecuting.value = true
-        interpreterFuture = interpreterExecutor.submit {
-            val interpreterOutput = interpreter.execute(input)
-            interpreterPrintStream.flush()
-            val printedOutput = interpreterOutputStream.toString(StandardCharsets.UTF_8.name())
-            interpreterOutputStream.reset()
-            val output = if (printedOutput.isNotEmpty()) {
-                "$printedOutput\n$interpreterOutput"
-            } else {
-                interpreterOutput
+        interpreterFuture =
+            interpreterExecutor.submit {
+                val interpreterOutput = interpreter.execute(input)
+                interpreterPrintStream.flush()
+                val printedOutput = interpreterOutputStream.toString(StandardCharsets.UTF_8.name())
+                interpreterOutputStream.reset()
+                val output =
+                    if (printedOutput.isNotEmpty()) {
+                        "$printedOutput\n$interpreterOutput"
+                    } else {
+                        interpreterOutput
+                    }
+                getApplication<Application>().mainExecutorCompat.execute {
+                    interpreterFuture = null
+                    _items.value = _items.valueCompat + ShellItem(input, output)
+                    _isExecuting.value = false
+                }
             }
-            getApplication<Application>().mainExecutorCompat.execute {
-                interpreterFuture = null
-                _items.value = _items.valueCompat + ShellItem(input, output)
-                _isExecuting.value = false
-            }
-        }
     }
 
     fun interrupt() {

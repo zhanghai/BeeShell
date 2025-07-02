@@ -48,9 +48,8 @@ import dev.chrisbanes.insetter.applyInsetter
 import me.zhanghai.android.beeshell.databinding.ShellFragmentBinding
 
 class ShellFragment : Fragment(), ShellAdapter.Listener {
-    private val getContentLauncher = registerForActivityResult(
-        ActivityResultContracts.GetContent(), this::onGetContentResult
-    )
+    private val getContentLauncher =
+        registerForActivityResult(ActivityResultContracts.GetContent(), this::onGetContentResult)
 
     private val viewModel: ShellViewModel by viewModels()
 
@@ -72,10 +71,8 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View = ShellFragmentBinding.inflate(inflater, container, false)
-        .also { binding = it }
-        .root
+        savedInstanceState: Bundle?,
+    ): View = ShellFragmentBinding.inflate(inflater, container, false).also { binding = it }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -85,8 +82,9 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
             @Suppress("DEPRECATION")
             activity.setTaskDescription(
                 ActivityManager.TaskDescription(
-                    null, null,
-                    activity.getColorByAttr(com.google.android.material.R.attr.colorSurface)
+                    null,
+                    null,
+                    activity.getColorByAttr(com.google.android.material.R.attr.colorSurface),
                 )
             )
             activity.window.setDecorFitsSystemWindowsCompat(false)
@@ -101,11 +99,13 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
             }
         }
         adapter = ShellAdapter(this)
-        adapter.registerAdapterDataObserver(object : SimpleAdapterDataObserver() {
-            override fun onChanged() {
-                binding.emptyImage.isInvisible = adapter.itemCount != 0
+        adapter.registerAdapterDataObserver(
+            object : SimpleAdapterDataObserver() {
+                override fun onChanged() {
+                    binding.emptyImage.isInvisible = adapter.itemCount != 0
+                }
             }
-        })
+        )
         binding.recycler.apply {
             updatePaddingRelative(top = paddingTop + marginTop)
             updateLayoutParams<ViewGroup.MarginLayoutParams> { updateMarginsRelative(top = 0) }
@@ -118,24 +118,28 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
             layoutManager = LinearLayoutManager(activity)
             addItemDecoration(
                 DividerItemDecoration(
-                    ColorDrawable(Color.TRANSPARENT), size = dpToDimensionPixelSize(16)
+                    ColorDrawable(Color.TRANSPARENT),
+                    size = dpToDimensionPixelSize(16),
                 )
             )
             ItemTouchHelper(
-                object : ItemTouchHelper.SimpleCallback(
-                    0, ItemTouchHelper.START or ItemTouchHelper.END
-                ) {
-                    override fun onMove(
-                        recyclerView: RecyclerView,
-                        viewHolder: RecyclerView.ViewHolder,
-                        target: RecyclerView.ViewHolder
-                    ): Boolean = false
+                    object :
+                        ItemTouchHelper.SimpleCallback(
+                            0,
+                            ItemTouchHelper.START or ItemTouchHelper.END,
+                        ) {
+                        override fun onMove(
+                            recyclerView: RecyclerView,
+                            viewHolder: RecyclerView.ViewHolder,
+                            target: RecyclerView.ViewHolder,
+                        ): Boolean = false
 
-                    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                        onRemoveItem(viewHolder.bindingAdapterPosition)
+                        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                            onRemoveItem(viewHolder.bindingAdapterPosition)
+                        }
                     }
-                }
-            ).attachToRecyclerView(this)
+                )
+                .attachToRecyclerView(this)
             adapter = this@ShellFragment.adapter
             // Cannot just use an on scroll listener due to RecyclerView has animations.
             viewTreeObserver.addOnPreDrawListener {
@@ -144,22 +148,24 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
             }
         }
         val itemAnimator = binding.recycler.itemAnimator!!
-        (binding.emptyImage.parent as ViewGroup).layoutTransition.setDuration(
-            (itemAnimator.addDuration + itemAnimator.removeDuration) / 2
-        )
+        (binding.emptyImage.parent as ViewGroup)
+            .layoutTransition
+            .setDuration((itemAnimator.addDuration + itemAnimator.removeDuration) / 2)
         binding.bottomLayout.applyInsetter {
             type(statusBars = true, navigationBars = true) {
                 padding(left = true, right = true, bottom = true)
             }
-            type(ime = true) {
-                padding(left = true, right = true, bottom = true, animated = true)
-            }
+            type(ime = true) { padding(left = true, right = true, bottom = true, animated = true) }
             syncTranslationTo(binding.syncTranslationView)
         }
         binding.inputEdit.setOnKeyListener { _, keyCode, event ->
-            if (event.action == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_DPAD_CENTER
-                        || keyCode == KeyEvent.KEYCODE_ENTER
-                        || keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER) && event.isCtrlPressed) {
+            if (
+                event.action == KeyEvent.ACTION_DOWN &&
+                    (keyCode == KeyEvent.KEYCODE_DPAD_CENTER ||
+                        keyCode == KeyEvent.KEYCODE_ENTER ||
+                        keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER) &&
+                    event.isCtrlPressed
+            ) {
                 onExecute()
                 true
             } else {
@@ -208,18 +214,22 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
     private fun onItemsPreDraw() {
         val layoutManager = binding.recycler.layoutManager!!
         val firstItemView = layoutManager.findViewByPosition(0)
-        binding.toolbar.elevation = if (
+        binding.toolbar.elevation =
+            if (
+                if (firstItemView != null) {
+                    firstItemView.y < binding.recycler.paddingTop
+                } else {
+                    layoutManager.childCount != 0
+                }
+            )
+                -1f
+            else 0f
+        binding.toolbar.isInvisible =
             if (firstItemView != null) {
-                firstItemView.y < binding.recycler.paddingTop
+                firstItemView.y <= binding.toolbar.top
             } else {
                 layoutManager.childCount != 0
             }
-        ) -1f else 0f
-        binding.toolbar.isInvisible = if (firstItemView != null) {
-            firstItemView.y <= binding.toolbar.top
-        } else {
-            layoutManager.childCount != 0
-        }
     }
 
     private fun onItemsChanged(items: List<ShellItem>) {
@@ -235,8 +245,8 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
     }
 
     override fun onCopyText(text: String) {
-        val clipboardManager = requireActivity()
-            .getSystemServiceCompat(ClipboardManager::class.java)
+        val clipboardManager =
+            requireActivity().getSystemServiceCompat(ClipboardManager::class.java)
         clipboardManager.setPrimaryClip(ClipData.newPlainText(null, text))
     }
 
@@ -260,13 +270,14 @@ class ShellFragment : Fragment(), ShellAdapter.Listener {
 
     private fun onGetContentResult(uri: Uri?) {
         uri ?: return
-        val text = try {
-            val inputStream = requireActivity().contentResolver.openInputStream(uri) ?: return
-            inputStream.use { it.bufferedReader().readText() }
-        } catch (e: Exception) {
-            showToast(e.toString())
-            return
-        }
+        val text =
+            try {
+                val inputStream = requireActivity().contentResolver.openInputStream(uri) ?: return
+                inputStream.use { it.bufferedReader().readText() }
+            } catch (e: Exception) {
+                showToast(e.toString())
+                return
+            }
         binding.inputEdit.apply {
             setText(text)
             setSelection(text.length)

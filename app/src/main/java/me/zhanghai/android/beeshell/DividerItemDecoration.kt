@@ -28,7 +28,7 @@ class DividerItemDecoration(
     var drawable: Drawable,
     var orientation: Int = VERTICAL,
     var size: Int =
-        if (orientation == VERTICAL) drawable.intrinsicHeight else drawable.intrinsicWidth
+        if (orientation == VERTICAL) drawable.intrinsicHeight else drawable.intrinsicWidth,
 ) : RecyclerView.ItemDecoration() {
     private val bounds = Rect()
 
@@ -88,7 +88,7 @@ class DividerItemDecoration(
         outRect: Rect,
         view: View,
         parent: RecyclerView,
-        state: RecyclerView.State
+        state: RecyclerView.State,
     ) {
         if (parent.isLastItemView(view)) {
             outRect.set(0, 0, 0, 0)
