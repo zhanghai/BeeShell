@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 /*
  * Copyright 2020 Google LLC
  *
@@ -14,16 +16,14 @@
  * limitations under the License.
  */
 
-plugins {
-    id("com.android.application")
-    kotlin("android")
-}
+plugins { id("com.android.application") }
 
 android {
     namespace = "me.zhanghai.android.beeshell"
     compileSdk = 36
     ndkVersion = "28.1.13356709"
     buildToolsVersion = "36.0.0"
+
     defaultConfig {
         applicationId = "me.zhanghai.android.beeshell"
         minSdk = 21
@@ -32,15 +32,7 @@ android {
         versionName = "1.0.4"
         resValue("string", "app_version", "$versionName ($versionCode)")
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions { jvmTarget = JavaVersion.VERSION_1_8.toString() }
-    buildFeatures {
-        buildConfig = true
-        viewBinding = true
-    }
+
     signingConfigs {
         create("release") {
             storeFile = System.getenv("STORE_FILE")?.let { rootProject.file(it) }
@@ -59,6 +51,15 @@ android {
             )
             signingConfig = signingConfigs.getByName("release")
         }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        buildConfig = true
+        resValues = true
+        viewBinding = true
     }
     packaging {
         jniLibs {
