@@ -26,7 +26,7 @@ android {
 
     defaultConfig {
         applicationId = "me.zhanghai.android.beeshell"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 36
         versionCode = 5
         versionName = "1.0.4"
@@ -71,14 +71,14 @@ android {
 
 dependencies {
     implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("androidx.core:core-ktx:1.16.0")
-    implementation("androidx.fragment:fragment-ktx:1.8.8")
-    val androidxLifecycleVersion = "2.9.1"
+    implementation("androidx.core:core-ktx:1.17.0")
+    implementation("androidx.fragment:fragment-ktx:1.8.9")
+    val androidxLifecycleVersion = "2.10.0"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$androidxLifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$androidxLifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-common-java8:$androidxLifecycleVersion")
     implementation("androidx.recyclerview:recyclerview:1.4.0")
-    implementation("com.google.android.material:material:1.12.0")
+    implementation("com.google.android.material:material:1.13.0")
     implementation("dev.chrisbanes.insetter:insetter:0.6.1")
     implementation("me.zhanghai.android.linenoise:library:1.0.2")
     implementation("org.apache-extras.beanshell:bsh:2.0b6")
